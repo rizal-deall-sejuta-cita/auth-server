@@ -4,11 +4,11 @@ const secretAccessToken = process.env.JWT_ACCESSTOKEN_SECRET
 const secretRefreshToken = process.env.JWT_REFRESH_SECRET
 
 const signAccessToken = (payload) => {
-    return jwt.sign(payload, secretAccessToken, {expiresIn: 60} )
+    return jwt.sign(payload, secretAccessToken, {expiresIn: (60 * 1)} )
 }
 
 const signRefreshToken = (payload) => {
-    return jwt.sign(payload, secretRefreshToken, {expiresIn: 300})
+    return jwt.sign(payload, secretRefreshToken, {expiresIn: (60 * 5)})
 }
 
 const verifyAccessT = async (token) => {
